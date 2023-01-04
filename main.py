@@ -1,12 +1,16 @@
 import sys
+import grp
 
 # Todo: logging
 # Todo: handle exceptions
 # Todo: check process already running
 
 def group_name_exists(group_name):
-    print(grp.getgrall())
-    return group_name in grp.getgrall()
+    group_names = []
+    for group in grp.getgrall():
+        group_names.append(group.gr_name)
+    print(group_names)
+    return group_name in group_names
 
 
 def find_files(group_name):
@@ -33,7 +37,7 @@ def find_files(group_name):
 
 if __name__ == "__main__":
 
-    if len(sys.argv != 2):
+    if len(sys.argv) != 2:
         # Handle exception
         raise Exception()
 
