@@ -4,6 +4,7 @@ import os
 import pwd
 import time
 import tarfile
+import logging
 
 # TODO: logging
 # TODO: handle exceptions
@@ -11,6 +12,7 @@ import tarfile
 
 TOP_DIRECTORY = os.getenv("MVGRPFILES_TOP_DIRECTORY", default="/")
 ARCHIVE_LOCATION = os.getenv("MVGRPFILES_ARCHIVE_LOCATION", default="./archive/")
+LOG_LOCATION = os.getenv("MVGRPFILES_LOG_LOCATION", default="./logs/")
 
 def group_name_exists(group_name: str) -> bool:
 
@@ -95,6 +97,14 @@ if __name__ == "__main__":
         raise Exception()
 
     group_name = sys.argv[1]
+
+    logging.basicConfig(
+        filename=LOG_LOCATION + str(time.time()) + "." + group_name + '.log',
+        encoding='utf-8',
+        level=logging.DEBUG
+    )
+
+    logging.info("Looking for files from users in the %s group", group_name)
 
     # Validating user input
     if not group_name_exists(group_name):
