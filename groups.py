@@ -4,6 +4,17 @@ import pwd
 
 TOP_DIRECTORY = os.getenv("MVGRPFILES_TOP_DIRECTORY", default="/")
 
+def groups_share_members(group1: str, group2:str) -> bool:
+
+    group_info1 = grp.getgrnam(group1)
+    users1 = set(group_info1.gr_mem)
+
+    group_info2 = grp.getgrnam(group2)
+    users2 = set(group_info2.gr_mem)
+
+    return not users1.isdisjoint(users2)
+
+
 def group_name_exists(group_name: str) -> bool:
 
     # Check if group exists
