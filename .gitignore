@@ -2,3 +2,4 @@ archive
 .vscode
 test_files
 logs
+__pycache__
