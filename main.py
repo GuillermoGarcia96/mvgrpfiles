@@ -2,50 +2,38 @@ import sys
 import grp
 import os
 import pwd
+import time
+import tarfile
 
 # TODO: logging
 # TODO: handle exceptions
 # TODO: check process already running
 
 TOP_DIRECTORY = os.getenv("MVGRPFILES_TOP_DIRECTORY", default="/")
+ARCHIVE_LOCATION = os.getenv("MVGRPFILES_ARCHIVE_LOCATION", default="./archive/")
 
 def group_name_exists(group_name: str) -> bool:
-    group_names = []
+
+    # Check if group exists
+    group_names: list[str] = []
     for group in grp.getgrall():
         group_names.append(group.gr_name)
+
     return group_name in group_names
 
 
-def get_files_from_all_group_members(group_name: str) -> dict[str, str]:
+def get_files_from_all_group_members(group_name: str) -> list[str]:
 
-    # Find all users in the group
+    # Get all users in the group
     group_info = grp.getgrnam(group_name)
     users = group_info.gr_mem
 
-    group_files_by_user = {}
+    # Get all files from all group members
+    group_files = []
     for user in users:
-        group_files_by_user[user] = get_files_owned_by_user(TOP_DIRECTORY, user)
+        group_files += get_files_owned_by_user(TOP_DIRECTORY, user)
 
-    # Find all files belonging to those users
-    # file_names = []
-    # files_without_permission = []
-    # for user in users:
-    #     for root, dirs, files in os.walk('/home/ermo'):
-    #         for file in files:
-    #             file_path = os.path.join(root, file)
-
-    #             try:
-    #                 file_stat = os.stat(file_path)
-    #             except PermissionError:
-    #                 files_without_permission.append(file_path)
-    #             except FileNotFoundError:
-    #                 # print(FileNotFoundError)
-    #                 pass
-
-    #             if file_stat.st_uid == pwd.getpwnam(user).pw_uid:
-    #                 file_names.append(file_path)
-
-    return group_files_by_user
+    return group_files
 
 
 def get_files_owned_by_user(directory: str, user: str) -> list[str]:
@@ -71,6 +59,19 @@ def get_files_owned_by_user(directory: str, user: str) -> list[str]:
     return file_names
 
 
+def archive_files(file_list: list[str], archive_path: str) -> bool:
+
+    # Move files to archive
+    with tarfile.open(archive_path, "x") as archive:
+        for file in file_list:
+            archive.add(file)
+
+    for file in file_list:
+        os.rename(file, os.path.join(archive_path, file))
+
+    return True
+
+
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
@@ -83,9 +84,11 @@ if __name__ == "__main__":
     if not group_name_exists(group_name):
         raise Exception()
 
-    group_files_by_user = get_files_from_all_group_members(group_name)
+    group_files = get_files_from_all_group_members(group_name)
 
-    # print(files_without_permission)
-    print(group_files_by_user)
-    for i in group_files_by_user.values():
-        print(len(i))
+    print(group_files)
+    print(len(group_files))
+
+    archive_path = ARCHIVE_LOCATION + group_name + "_" + str(time.time()) + ".tar"
+
+    archive_files(group_files, archive_path)
