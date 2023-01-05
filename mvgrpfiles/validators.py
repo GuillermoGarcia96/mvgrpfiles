@@ -51,3 +51,8 @@ def groups_share_members(group1: str, group2:str) -> bool:
     return not users1.isdisjoint(users2)
 
 
+def validate_directories_exist(directories: list[str]) -> None:
+    for directory in directories:
+        if not os.path.exists(directory):
+            os.makedirs(directory, mode=0o766)
+    return

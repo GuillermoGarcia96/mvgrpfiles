@@ -4,7 +4,7 @@ import time
 import logging
 
 from mvgrpfiles.fs_interface import get_files_from_all_group_members, archive_files, create_lock, remove_lock, get_locked_groups
-from mvgrpfiles.validators import validate_input, validate_program_not_running
+from mvgrpfiles.validators import validate_input, validate_program_not_running, validate_directories_exist
 
 # TODO: logging
 # TODO: handle exceptions
@@ -20,6 +20,8 @@ group_name = sys.argv[1]
 
 locked_groups = get_locked_groups(LOCKS_DIR)
 validate_program_not_running(group_name, locked_groups)
+
+validate_directories_exist([ARCHIVE_DIR, LOGS_DIR, LOCKS_DIR])
 
 # Create log file
 log_path = LOGS_DIR + str(time.time()) + "." + group_name + '.log'
