@@ -10,8 +10,8 @@ from mvgrpfiles.validators import validate_input, validate_program_not_running, 
 # TODO: handle exceptions
 # TODO: setup.py to setup.cfg
 
-ARCHIVE_DIR = "~/.mvgrpfiles/archive/"
-LOGS_DIR = "~/.mvgrpfiles/logs/"
+ARCHIVE_DIR = os.path.expanduser("~/.mvgrpfiles/archive/")
+LOGS_DIR = os.path.expanduser("~/.mvgrpfiles/logs/")
 LOCKS_DIR = "/var/tmp/mvgrpfiles/locks/"
 
 print("Starting the program...")
@@ -26,18 +26,18 @@ locked_groups = get_locked_groups(LOCKS_DIR)
 validate_program_not_running(group_name, locked_groups)
 
 # Create log file
-log_path = LOGS_DIR + str(time.time()) + "." + group_name + '.log'
+log_path = os.path.join(LOGS_DIR, str(time.time()) + "." + group_name + '.log')
 logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
 
 # Create lock file
-lock_path = LOCKS_DIR + group_name + '.lock'
+lock_path = os.path.join(LOCKS_DIR, group_name + '.lock')
 create_lock(lock_path)
 
 logging.info("Looking for files from users in the %s group", group_name)
 
 # Get and archive files
 group_files = get_files_from_all_group_members(group_name)
-archive_full_path = ARCHIVE_DIR + group_name + "_" + str(time.time()) + ".tar"
+archive_full_path = os.path.join(ARCHIVE_DIR, group_name + "_" + str(time.time()) + ".tar")
 archive_files(group_files, archive_full_path)
 
 # Remove lock file
