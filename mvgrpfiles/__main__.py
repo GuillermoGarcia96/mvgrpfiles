@@ -18,10 +18,10 @@ LOCKS_DIR = "/usr/local/share/mvgrpfiles/locks/"
 validate_input(sys.argv)
 group_name = sys.argv[1]
 
+validate_directories_exist([ARCHIVE_DIR, LOGS_DIR, LOCKS_DIR])
+
 locked_groups = get_locked_groups(LOCKS_DIR)
 validate_program_not_running(group_name, locked_groups)
-
-validate_directories_exist([ARCHIVE_DIR, LOGS_DIR, LOCKS_DIR])
 
 # Create log file
 log_path = LOGS_DIR + str(time.time()) + "." + group_name + '.log'
