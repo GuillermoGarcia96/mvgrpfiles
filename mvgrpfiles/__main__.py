@@ -3,8 +3,8 @@ import sys
 import time
 import logging
 
-from groups import groups_share_members, group_name_exists, get_files_from_all_group_members
-from archive import archive_files
+from mvgrpfiles.groups import groups_share_members, group_name_exists, get_files_from_all_group_members
+from mvgrpfiles.archive import archive_files
 
 # TODO: logging
 # TODO: handle exceptions
