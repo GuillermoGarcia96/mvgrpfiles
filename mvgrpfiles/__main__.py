@@ -3,74 +3,38 @@ import sys
 import time
 import logging
 
-from mvgrpfiles.groups import groups_share_members, group_name_exists, get_files_from_all_group_members
-from mvgrpfiles.archive import archive_files
+from mvgrpfiles.fs_interface import get_files_from_all_group_members, archive_files, create_lock, remove_lock, get_locked_groups
+from mvgrpfiles.validators import validate_input, validate_program_not_running
 
 # TODO: logging
 # TODO: handle exceptions
-# TODO: check process already running
+# TODO: setup.py to setup.cfg
 
-ARCHIVE_LOCATION = os.getenv("MVGRPFILES_ARCHIVE_LOCATION", default="/usr/local/mvgrpfiles/archive/")
-LOGS_LOCATION = os.getenv("MVGRPFILES_LOGS_LOCATION", default="/var/log/mvgrpfiles")
-LOCKS_LOCATION = os.getenv("MVGRPFILES_LOCKS_LOCATION", default="/var/lock/mvgrpfiles/")
+ARCHIVE_DIR = "~/.mvgrpfiles/archive/"
+LOGS_DIR = "~/.mvgrpfiles/logs/"
+LOCKS_DIR = "/usr/local/share/mvgrpfiles/locks/"
 
-if __name__ == "__main__":
+# Safety checks
+validate_input(sys.argv)
+group_name = sys.argv[1]
 
-    # Check the program was given 1 parameter
-    if len(sys.argv) != 2:
-        # Handle exception
-        raise Exception()
+locked_groups = get_locked_groups(LOCKS_DIR)
+validate_program_not_running(group_name, locked_groups)
 
-    group_name = sys.argv[1]
+# Create log file
+log_path = LOGS_DIR + str(time.time()) + "." + group_name + '.log'
+logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
 
-    # Create the lock file path
-    lock_file_name = group_name + '.lock'
+# Create lock file
+lock_path = LOCKS_DIR + group_name + '.lock'
+create_lock(lock_path)
 
-    # Get the list of files in the directory
-    lock_files = os.listdir(LOCKS_LOCATION)
+logging.info("Looking for files from users in the %s group", group_name)
 
-    # Print the list of lock files
-    print(lock_files)
+# Get and archive files
+group_files = get_files_from_all_group_members(group_name)
+archive_full_path = ARCHIVE_DIR + group_name + "_" + str(time.time()) + ".tar"
+archive_files(group_files, archive_full_path)
 
-    if lock_file_name in lock_files:
-        print('This program is already running!')
-        sys.exit(1)
-
-    else:
-        for lock in lock_files:
-            locked_group = lock.split('.', 1)[0]
-            if groups_share_members(group_name, locked_group):
-                print('Another group sharing members with %s is already being archived.', group_name)
-                sys.exit(1)
-
-    # The lock file does not exist, so create it
-    lock_file_path = LOCKS_LOCATION + lock_file_name
-    pid = os.getpid()
-    with open(lock_file_path, 'w') as f:
-        f.write(str(pid))
-
-    # Check that the parameter is a valid group name
-    if not group_name_exists(group_name):
-        raise Exception()
-
-    # Create a log file
-    logging.basicConfig(
-        filename=LOGS_LOCATION + str(time.time()) + "." + group_name + '.log',
-        encoding='utf-8',
-        level=logging.DEBUG
-    )
-
-    logging.info("Looking for files from users in the %s group", group_name)
-
-    # Get all files from users from the given group
-    group_files = get_files_from_all_group_members(group_name)
-
-    print(group_files)
-    print(len(group_files))
-
-    # Archives the obtained files
-    archive_path = ARCHIVE_LOCATION + group_name + "_" + str(time.time()) + ".tar"
-
-    archive_files(group_files, archive_path)
-
-    os.remove(lock_file_path)
+# Remove lock file
+remove_lock(lock_path)
