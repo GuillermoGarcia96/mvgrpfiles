@@ -10,9 +10,9 @@ from mvgrpfiles.archive import archive_files
 # TODO: handle exceptions
 # TODO: check process already running
 
-ARCHIVE_LOCATION = os.getenv("MVGRPFILES_ARCHIVE_LOCATION", default="./archive/")
-LOGS_LOCATION = os.getenv("MVGRPFILES_LOGS_LOCATION", default="./logs/")
-LOCKS_LOCATION = os.getenv("MVGRPFILES_LOCKS_LOCATION", default="./locks/")
+ARCHIVE_LOCATION = os.getenv("MVGRPFILES_ARCHIVE_LOCATION", default="/usr/local/mvgrpfiles/archive/")
+LOGS_LOCATION = os.getenv("MVGRPFILES_LOGS_LOCATION", default="/var/log/mvgrpfiles")
+LOCKS_LOCATION = os.getenv("MVGRPFILES_LOCKS_LOCATION", default="/var/lock/mvgrpfiles/")
 
 if __name__ == "__main__":
 
