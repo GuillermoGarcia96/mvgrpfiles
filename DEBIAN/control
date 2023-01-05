@@ -2,5 +2,4 @@ Package: mvgrpfile
 Version: 0.0.1
 Architecture: all
 Maintainer: Guillermo Garcia <guillermo.garcia.grao@gmail.com>
-Depends: python3.9
 Description: A Python program that moves all files from all members of a group to an archive
