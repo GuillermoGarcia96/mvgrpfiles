@@ -2,9 +2,7 @@ import os
 import tempfile
 import unittest
 
-def create_lock(lock_path: str) -> None:
-    with open(lock_path, 'w'):
-        pass
+from mvgrpfiles.validators import create_lock
 
 class TestCreateLock(unittest.TestCase):
     def test_create_lock(self):
