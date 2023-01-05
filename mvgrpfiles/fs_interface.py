@@ -59,6 +59,9 @@ def get_files_owned_by_user(directory: str, user: str) -> list[str]:
     except PermissionError:
         # TODO: handle this case
         pass
+    except FileNotFoundError:
+        # Files in /proc sometimes throw this
+        pass
 
     return file_names
 
