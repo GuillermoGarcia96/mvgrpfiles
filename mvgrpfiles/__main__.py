@@ -14,6 +14,8 @@ ARCHIVE_DIR = "~/.mvgrpfiles/archive/"
 LOGS_DIR = "~/.mvgrpfiles/logs/"
 LOCKS_DIR = "/var/tmp/mvgrpfiles/locks/"
 
+print("Starting the program...")
+
 # Safety checks
 validate_input(sys.argv)
 group_name = sys.argv[1]
