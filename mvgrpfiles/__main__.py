@@ -12,7 +12,7 @@ from mvgrpfiles.validators import validate_input, validate_program_not_running, 
 
 ARCHIVE_DIR = "~/.mvgrpfiles/archive/"
 LOGS_DIR = "~/.mvgrpfiles/logs/"
-LOCKS_DIR = "/usr/local/share/mvgrpfiles/locks/"
+LOCKS_DIR = "/var/tmp/mvgrpfiles/locks/"
 
 # Safety checks
 validate_input(sys.argv)
