@@ -81,15 +81,21 @@ def archive_files(file_list: list[str], archive_path: str) -> None:
             archive.add(file)
 
     # Move files to archive
+    full_permissions = True
     total_archived = len(file_list)
     for file in file_list:
         try:
             os.rename(file, os.path.join(archive_path, file))
             os.remove(file)
+        except PermissionError:
+            full_permissions = False
         except OSError as e:
             total_archived -= 1
             logging.warning("File {} could not be archived, the following exception was raised:".format(file))
             logging.warning(str(e))
+    
+    if not full_permissions:
+        print("You don't have permission for the whole filesystem. Some files could be missing in the archive.")
 
     logging.info("{}/{} total files archived in {}.".format(total_archived, len(file_list), archive_path))
 

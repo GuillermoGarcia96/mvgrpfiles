@@ -1,16 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.0
 Source: mvgrpfiles
-Architecture: source
-Version: 1.0.1-1
+Binary: python3-mvgrpfiles
+Architecture: all source
+Version: 1.0.2-1
 Checksums-Md5:
- 9c48e6bf8e1ffa66e8e3f30a5aadbd4d 861 mvgrpfiles_1.0.1-1.dsc
+ 46dc664010ac36a6a6100a31f22258db 1614 mvgrpfiles_1.0.2-1.dsc
+ f5ea45a9438d2b2639d620d01e36d22f 4796 python3-mvgrpfiles_1.0.2-1_all.deb
 Checksums-Sha1:
- 1538396173b73c68704ea9f3de230f89c1963cc4 861 mvgrpfiles_1.0.1-1.dsc
+ 808cd08a8af070857419cc891fbe8f700113ab27 1614 mvgrpfiles_1.0.2-1.dsc
+ 557337155351cd8d22d3cac6656f10d4d21916f4 4796 python3-mvgrpfiles_1.0.2-1_all.deb
 Checksums-Sha256:
- ece43ff03ae427a19bfa665b6c58264b07ec7a07b6f7873955bf520bf0c1f553 861 mvgrpfiles_1.0.1-1.dsc
+ e4c0c7b9e527a394b90a95492425149785e94966d142e66498f3bead41fd1ca6 1614 mvgrpfiles_1.0.2-1.dsc
+ 198a0d6359454ca2e4a558fce08f6191352bdab02f0272b0858b0430535164f2 4796 python3-mvgrpfiles_1.0.2-1_all.deb
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Fri, 06 Jan 2023 09:03:58 +0100
+Build-Date: Fri, 06 Jan 2023 09:04:34 +0100
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -208,4 +215,19 @@ Installed-Build-Depends:
 Environment:
  DEB_BUILD_OPTIONS="parallel=16"
  LANG="es_ES.UTF-8"
- SOURCE_DATE_EPOCH="1672992236"
+ SOURCE_DATE_EPOCH="1672992254"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQHUBAEBCgA+FiEEkIAbev6XGMc91pXfFCxI9mgjPKMFAmO31hMgHGd1aWxsZXJt
+by5nYXJjaWEuZ3Jhb0BnbWFpbC5jb20ACgkQFCxI9mgjPKOfkQwA58ZvcjuuOA7P
+Q2vrjRCOCgTHG75pRmoy1/4c+YAWTQOfcnzQnlxcmQEveei+Lv1GveT7B7JlMqIH
+VUFSA8iFzFCcyY69eszii4qnad85AQyUo0RfA4J+P1+J+3Elm8iet94eTFyd/plY
+jcFgXDbcLDGVRSTLr7GJpc65/WOJlaQQYxDyNt0QSvdhljw34pDoq2ZJZCdkM5/m
+1LLuujtXIAFLxGeRhrIJwQ1RSG+4KKsH1ZES2sEIfApiVXC7zj3zYbn1eksSNa0h
+fjPP44KElS6V9B1h7BtPu3G9qjvlqZrQoAVYXTzn5WuSdkv/zPGnf0S5miKZn9rz
+PR6LPih558rnaMHq/ApSXeTMA5bCYA6bnRma7DlfnVVvtPgRKXpyQyfqF857deZD
+say441OiCaI+GbrYmDvMlTAqkp5UORWyygD59nFiIcAfbPmoOCiDxHeMdqbE/gQ1
+LSAJ22rYj35NNXcFsKdTkeMRDOHPTTrWvbUAk+3h9NaQXZDbtyZt
+=ZmyH
+-----END PGP SIGNATURE-----

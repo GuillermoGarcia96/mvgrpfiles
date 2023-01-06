@@ -1,16 +1,16 @@
 Format: 1.0
 Source: mvgrpfiles
 Architecture: source
-Version: 1.0.1-1
+Version: 1.0.2-1
 Checksums-Md5:
- 9c48e6bf8e1ffa66e8e3f30a5aadbd4d 861 mvgrpfiles_1.0.1-1.dsc
+ 8783e1cb7111c6d1149988c16203c696 861 mvgrpfiles_1.0.2-1.dsc
 Checksums-Sha1:
- 1538396173b73c68704ea9f3de230f89c1963cc4 861 mvgrpfiles_1.0.1-1.dsc
+ 6a0e68eb3ced41a753b035dbb8bb4210eddde465 861 mvgrpfiles_1.0.2-1.dsc
 Checksums-Sha256:
- ece43ff03ae427a19bfa665b6c58264b07ec7a07b6f7873955bf520bf0c1f553 861 mvgrpfiles_1.0.1-1.dsc
+ 5f03c7e4e5af9fad992a1e7b02b491bb00c0f81429ca0c101ad67efa726a9868 861 mvgrpfiles_1.0.2-1.dsc
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Fri, 06 Jan 2023 09:03:58 +0100
+Build-Date: Fri, 06 Jan 2023 09:04:15 +0100
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -208,4 +208,4 @@ Installed-Build-Depends:
 Environment:
  DEB_BUILD_OPTIONS="parallel=16"
  LANG="es_ES.UTF-8"
- SOURCE_DATE_EPOCH="1672992236"
+ SOURCE_DATE_EPOCH="1672992254"
