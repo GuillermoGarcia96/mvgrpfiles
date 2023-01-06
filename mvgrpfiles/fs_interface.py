@@ -39,7 +39,7 @@ def get_files_from_all_group_members(group_name: str) -> list[str]:
         user_files = get_files_owned_by_user(TOP_DIR, user)
         group_files += user_files
 
-        logging.info("%d files from user %s archived.", len(user_files), user)
+        logging.info("{} files from user {} archived.".format(len(user_files), user))
 
     return group_files
 
@@ -82,9 +82,9 @@ def archive_files(file_list: list[str], archive_path: str) -> None:
             os.rename(file, os.path.join(archive_path, file))
             os.remove(file)
         except OSError as e:
-            logging.warning("File %s could not be archived, the following exception was raised:", file)
+            logging.warning("File {} could not be archived, the following exception was raised:".format(file))
             logging.warning(str(e))
 
-    logging.info("%d total files archived in %s.", len(file_list), archive_path)
+    logging.info("{} total files archived in {}.".format(len(file_list), archive_path))
 
     return

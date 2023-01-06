@@ -40,14 +40,14 @@ def validate_program_not_running(group_name: str, locked_groups: list[str]) -> b
 
     # Exit if program running for the same group
     if group_name in locked_groups:
-        print("This program is already running for group %s.", group_name)
+        print("This program is already running for group {}.".format(group_name))
         logging.error("Another instance of the program was running for the same group.")
         raise ProgramRunning()
 
     # Check if the group shares users with those in running programs
     for locked_group in locked_groups:
         if groups_share_members(group_name, locked_group):
-            print("A group sharing members with %s is currently being archived.", group_name)
+            print("A group sharing members with {} is currently being archived.".format(group_name))
             logging.error("Another instance of the program was running for a group with shared members.")
             raise ProgramRunning()
 

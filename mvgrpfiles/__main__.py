@@ -39,13 +39,13 @@ def main():
     # Remove lock file whenever program exits
     atexit.register(remove_lock, lock_path)
 
-    print("Looking for files from users in the %s group...\n", group_name)
+    print("Looking for files from users in the {} group...\n".format(group_name))
 
     # Get and archive files
     group_files = get_files_from_all_group_members(group_name)
     archive_full_path = os.path.join(ARCHIVE_DIR, group_name + "_" + str(time.time()) + ".tar")
 
-    print("Archiving files at %s...\n", archive_full_path)
+    print("Archiving files at {}...\n".format(archive_full_path))
 
     archive_files(group_files, archive_full_path)
 
