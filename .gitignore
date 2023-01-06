@@ -161,3 +161,4 @@ cython_debug/
 
 .vscode
 deb_dist
+mvgrpfiles*.tar.gz
