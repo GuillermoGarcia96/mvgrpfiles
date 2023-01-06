@@ -14,10 +14,10 @@ class TestValidators(unittest.TestCase):
 
     def test_groups_share_members(self):
         # Test groups with no shared members
-        assert not groups_share_members('group1', 'group2')
+        assert not groups_share_members('group1', 'group4')
 
         # Test groups with shared members
-        assert groups_share_members('group1', 'group4')
+        assert groups_share_members('group1', 'group2')
 
     def test_validate_directories_exist(self):
         # Create a temporary directory for testing
