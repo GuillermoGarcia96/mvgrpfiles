@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='mvgrpfiles',
-    version='1.0.7',
+    version='1.0.8',
     description='A Python program that moves all files from all members of a group to an archive',
     author='Guillermo García Grao',
     author_email='guillermo.garcia.grao@gmail.com',

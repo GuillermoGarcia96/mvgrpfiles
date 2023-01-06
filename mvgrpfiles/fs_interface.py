@@ -43,7 +43,8 @@ def get_files_from_all_group_members(group_name):
         logging.info("{} files from user {} found.".format(len(user_files), user))
 
     if not full_permissions:
-        print("You don't have read permissions for the whole filesystem. Some files might be missing.")
+        print("You don't have read permissions for the whole filesystem. Some files might be missing.\n")
+        logging.warning("User lacked read permissions. Some files may have not been archived.\n")
 
     return group_files
 
@@ -92,7 +93,6 @@ def archive_files(file_list, archive_path):
             os.rename(file, os.path.join(archive_path, file))
             os.remove(file)
         except PermissionError:
-            total_archived -= 1
             full_permissions = False
         except OSError as e:
             total_archived -= 1
@@ -100,7 +100,8 @@ def archive_files(file_list, archive_path):
             logging.warning(str(e))
     
     if not full_permissions:
-        print("You don't have write permissions for the whole filesystem. Some files will be missing from the archive.")
+        print("You don't have write permissions for the whole filesystem. Some files will not be removed from their original location.\n")
+        logging.warning("User lacked write permissions. Some files were archived but not removed.\n")
 
     logging.info("{}/{} total files archived in {}.".format(total_archived, len(file_list), archive_path))
 
