@@ -1,6 +1,6 @@
 Package: python3-mvgrpfiles
 Source: mvgrpfiles
-Version: 1.0-1
+Version: 1.0.1-1
 Architecture: all
 Maintainer: Guillermo García Grao <guillermo.garcia.grao@gmail.com>
 Installed-Size: 17
