@@ -2,6 +2,7 @@ import grp
 import os
 import pwd
 import tarfile
+import logging
 
 # TOP_DIR = os.getenv("MVGRPFILES_TOP_DIR", default="/")
 TOP_DIR = "/"
@@ -35,7 +36,10 @@ def get_files_from_all_group_members(group_name: str) -> list[str]:
     # Get all files from all group members
     group_files = []
     for user in users:
-        group_files += get_files_owned_by_user(TOP_DIR, user)
+        user_files = get_files_owned_by_user(TOP_DIR, user)
+        group_files += user_files
+
+        logging.info("%d files from user %s archived.", len(user_files), user)
 
     return group_files
 
@@ -57,10 +61,9 @@ def get_files_owned_by_user(directory: str, user: str) -> list[str]:
                     # Recursively check the subdirectory
                     file_names += get_files_owned_by_user(entry.path, user)
     except PermissionError:
-        # TODO: handle this case
-        pass
+        logging.warning("User does not have permission for the whole filesystem. Some files could be missing in the archive.")
     except FileNotFoundError:
-        # Files in /proc sometimes throw this
+        # Files in /proc sometimes throw this errror
         pass
 
     return file_names
@@ -77,21 +80,11 @@ def archive_files(file_list: list[str], archive_path: str) -> None:
     for file in file_list:
         try:
             os.rename(file, os.path.join(archive_path, file))
-        except Exception:
-            pass
-
-    remove_files(file_list)
-
-    return
-
-
-def remove_files(file_list: list[str]) -> None:
-
-    # Remove archived files
-    for file in file_list:
-        try:
             os.remove(file)
-        except Exception:
-            pass
+        except OSError as e:
+            logging.warning("File %s could not be archived, the following exception was raised:", file)
+            logging.warning(str(e))
+
+    logging.info("%d total files archived in %s.", len(file_list), archive_path)
 
     return

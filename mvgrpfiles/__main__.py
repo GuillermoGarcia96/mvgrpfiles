@@ -14,7 +14,7 @@ ARCHIVE_DIR = os.path.expanduser("~/.mvgrpfiles/archive/")
 LOGS_DIR = os.path.expanduser("~/.mvgrpfiles/logs/")
 LOCKS_DIR = "/var/tmp/mvgrpfiles/locks/"
 
-print("Starting the program...")
+print("Starting the program...\n")
 
 # Safety checks
 validate_input(sys.argv)
@@ -33,12 +33,17 @@ logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
 lock_path = os.path.join(LOCKS_DIR, group_name + '.lock')
 create_lock(lock_path)
 
-logging.info("Looking for files from users in the %s group", group_name)
+print("Looking for files from users in the %s group...\n", group_name)
 
 # Get and archive files
 group_files = get_files_from_all_group_members(group_name)
 archive_full_path = os.path.join(ARCHIVE_DIR, group_name + "_" + str(time.time()) + ".tar")
+
+print("Archiving files at %s...\n", archive_full_path)
+
 archive_files(group_files, archive_full_path)
+
+print("Files successfully archived!\n")
 
 # Remove lock file
 remove_lock(lock_path)

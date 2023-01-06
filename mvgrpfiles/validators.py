@@ -1,15 +1,27 @@
 import os
 import grp
+import logging
+
+
+class InvalidArgument(ValueError):
+    pass
+
+class ProgramRunning(RuntimeError):
+    pass
 
 
 def validate_input(input_parameters: list[str]) -> None:
 
     # Check the program was given exactly 1 parameter
     if len(input_parameters) != 2:
-        raise Exception()
+        print("Only one valid group name should be introduced as parameter.")
+        logging.error("User introduced invalid parameters.")
+        raise InvalidArgument()
 
     if not group_name_exists(input_parameters[1]):
-        raise Exception()
+        print("Only one valid group name should be introduced as parameter.")
+        logging.error("User introduced invalid parameters.")
+        raise InvalidArgument()
 
     return
 
@@ -28,14 +40,16 @@ def validate_program_not_running(group_name: str, locked_groups: list[str]) -> b
 
     # Exit if program running for the same group
     if group_name in locked_groups:
-        print('This program is already running!')
-        raise Exception()
+        print("This program is already running for group %s.", group_name)
+        logging.error("Another instance of the program was running for the same group.")
+        raise ProgramRunning()
 
     # Check if the group shares users with those in running programs
     for locked_group in locked_groups:
         if groups_share_members(group_name, locked_group):
-            print('A group sharing members with %s is currently being archived.', group_name)
-            raise Exception()
+            print("A group sharing members with %s is currently being archived.", group_name)
+            logging.error("Another instance of the program was running for a group with shared members.")
+            raise ProgramRunning()
 
     return
 
