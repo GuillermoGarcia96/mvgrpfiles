@@ -34,12 +34,16 @@ def get_files_from_all_group_members(group_name):
     users = group_info.gr_mem
 
     # Get all files from all group members
+    full_permissions = True
     group_files = []
     for user in users:
-        user_files = get_files_owned_by_user(TOP_DIR, user)
+        user_files, full_permissions = get_files_owned_by_user(TOP_DIR, user)
         group_files += user_files
 
         logging.info("{} files from user {} archived.".format(len(user_files), user))
+
+    if not full_permissions:
+        print("You don't have read permissions for the whole filesystem. Some files could be missing from the archive.")
 
     return group_files
 
@@ -60,17 +64,17 @@ def get_files_owned_by_user(directory, user):
 
                 elif entry.is_dir() and not entry.is_symlink():
                     # Recursively check the subdirectory
-                    file_names += get_files_owned_by_user(entry.path, user)
+                    more_files, full_permissions = get_files_owned_by_user(entry.path, user)
+                    file_names += more_files
     except PermissionError:
         full_permissions = False
     except FileNotFoundError:
         # Files in /proc sometimes throw this errror
         pass
 
-    if not full_permissions:
-        print("You don't have permission for the whole filesystem. Some files could be missing in the archive.")
+    
 
-    return file_names
+    return file_names, full_permissions
 
 
 def archive_files(file_list, archive_path):
@@ -95,7 +99,7 @@ def archive_files(file_list, archive_path):
             logging.warning(str(e))
     
     if not full_permissions:
-        print("You don't have permission for the whole filesystem. Some files could be missing in the archive.")
+        print("You don't have write permissions for the whole filesystem. Some files will be missing from the archive.")
 
     logging.info("{}/{} total files archived in {}.".format(total_archived, len(file_list), archive_path))
 

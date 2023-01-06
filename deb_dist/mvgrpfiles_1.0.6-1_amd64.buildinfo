@@ -1,16 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.0
 Source: mvgrpfiles
-Architecture: source
-Version: 1.0.5-1
+Binary: python3-mvgrpfiles
+Architecture: all source
+Version: 1.0.6-1
 Checksums-Md5:
- b171c8750eafa61f3f3a73675747290e 861 mvgrpfiles_1.0.5-1.dsc
+ 8c25a146afa9bad64e70204eeb8933c1 1614 mvgrpfiles_1.0.6-1.dsc
+ 0b037fc8a1249eef00ad56e27fd58f16 4772 python3-mvgrpfiles_1.0.6-1_all.deb
 Checksums-Sha1:
- 839a418871eac6a8f513e2a01fe0c19101441a8b 861 mvgrpfiles_1.0.5-1.dsc
+ 1e3746ffd8449cc99a8ef0289ecdd0dee51f9266 1614 mvgrpfiles_1.0.6-1.dsc
+ 953ce6074ad31dec4757dc0af9a40c7f153458ed 4772 python3-mvgrpfiles_1.0.6-1_all.deb
 Checksums-Sha256:
- 91293ec1dbd58b71e03461fb3accd9ce516103e73bf5314717a4794372528320 861 mvgrpfiles_1.0.5-1.dsc
+ 889c6f9701340ac398e8fa1285eab6d98dfec2ebff4097706533375a18b721b2 1614 mvgrpfiles_1.0.6-1.dsc
+ 800222d031334ecda977bfe7a150c7b6697a6f7110586799ace54444a7ba7b50 4772 python3-mvgrpfiles_1.0.6-1_all.deb
 Build-Origin: Debian
 Build-Architecture: amd64
-Build-Date: Fri, 06 Jan 2023 09:33:39 +0100
+Build-Date: Fri, 06 Jan 2023 09:33:56 +0100
 Build-Tainted-By:
  merged-usr-via-aliased-dirs
  usr-local-has-libraries
@@ -208,4 +215,19 @@ Installed-Build-Depends:
 Environment:
  DEB_BUILD_OPTIONS="parallel=16"
  LANG="es_ES.UTF-8"
- SOURCE_DATE_EPOCH="1672994017"
+ SOURCE_DATE_EPOCH="1672994024"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQHUBAEBCgA+FiEEkIAbev6XGMc91pXfFCxI9mgjPKMFAmO33PkgHGd1aWxsZXJt
+by5nYXJjaWEuZ3Jhb0BnbWFpbC5jb20ACgkQFCxI9mgjPKNNcgv+OXTJdIR12xLm
+Aaah5R4UyEpz33rL8zO8O1S1EhCfJ/tKCSJI/9AadTwpnjYgFzb+IdzP/xfvC60x
+kzCHLkT5l0rx2siBtxUTOT7BcqCvb6TaTky3KHrfhQu0xvwu5PWlBhu38zqGB+/n
+BU7nL+tiTyTNYmSUAAV3GafTVwE0bX2L/xqmEtzm71YLUy4NC9GMkikgR23NUKbO
+T8szeC96jmjOcuP0NS9xh8K0Vd/XaPqDVFe3jJCrumodx8fKFrjp0lolqxnVA6rh
+4O5GUY1ymbkLyJTsl56cNzarCE/H7fnLffmrCtLkuzAhTMm1sTJuFnfpUw0LJuiQ
+e5OZbFoq9YlaH5YIiI0LS099Sagawih6vD3jwL2rJtuX32d4FS3SSvznY2R2RJUv
+IUH0ZZmXunQa/iNbAkexXLhntnW+xmuEA7+vO+KPuXN82iS8bf8T6FmStgmiP63W
+E0gTu2pOmPPh6S02gHcMBkD/kEwVC+GJ+KHyrWTqnYBEU3Mosa/3
+=fZ7q
+-----END PGP SIGNATURE-----

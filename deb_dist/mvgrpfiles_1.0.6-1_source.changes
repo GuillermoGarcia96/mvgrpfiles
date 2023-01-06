@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 Jan 2023 09:33:44 +0100
+Source: mvgrpfiles
+Architecture: source
+Version: 1.0.6-1
+Distribution: unstable
+Urgency: low
+Maintainer: Guillermo García Grao <guillermo.garcia.grao@gmail.com>
+Changed-By: Guillermo García Grao <guillermo.garcia.grao@gmail.com>
+Changes:
+ mvgrpfiles (1.0.6-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.10.0
+Checksums-Sha1:
+ 19fdc50155f16c53688aac63bba4dd89b0a6cb4c 861 mvgrpfiles_1.0.6-1.dsc
+ 8ee611e2a24c4e4153e2129c86bf6034d3bd8385 3600 mvgrpfiles_1.0.6.orig.tar.gz
+ ac55be4503b600a83c81f30d539b85b64fbfc947 924 mvgrpfiles_1.0.6-1.debian.tar.xz
+ 8637ea5f836b7f62ae7b2c66f2120cd8d961d722 5987 mvgrpfiles_1.0.6-1_source.buildinfo
+Checksums-Sha256:
+ 9925e454d1f3bd5697334c338360f93f47086a5e388b3e501360731f8f011364 861 mvgrpfiles_1.0.6-1.dsc
+ fe95ce4ca1d716d27a72ee83e252bcf03efac312d9ac5d50ffc1b78ef33f8924 3600 mvgrpfiles_1.0.6.orig.tar.gz
+ c0bbc42791f7d96430b33bb9410b767d694dd4b55ef234665ef340eba544d641 924 mvgrpfiles_1.0.6-1.debian.tar.xz
+ 0b2e7bbb9637b0cc3f911a77afe92c64959c07d6a7ba5277546d94d0b215b2b0 5987 mvgrpfiles_1.0.6-1_source.buildinfo
+Files:
+ b24fb0e9332d7df8af0c68cdd4224559 861 python optional mvgrpfiles_1.0.6-1.dsc
+ 1481b392e2bbd6eaa46b5229815a3de8 3600 python optional mvgrpfiles_1.0.6.orig.tar.gz
+ 46d7af6b8955c9ddb05c7b5f4d3b85db 924 python optional mvgrpfiles_1.0.6-1.debian.tar.xz
+ f656e3729ce06323e52ddfaf57f59b61 5987 python optional mvgrpfiles_1.0.6-1_source.buildinfo

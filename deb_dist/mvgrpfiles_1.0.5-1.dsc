@@ -1,6 +1,3 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Format: 3.0 (quilt)
 Source: mvgrpfiles
 Binary: python3-mvgrpfiles
@@ -12,26 +9,11 @@ Build-Depends: python3-setuptools, python3-all, debhelper (>= 9)
 Package-List:
  python3-mvgrpfiles deb python optional arch=all
 Checksums-Sha1:
- 153dfb73bfda0fea7a53e4a2801be72006a9963e 3588 mvgrpfiles_1.0.5.orig.tar.gz
- b0bd399e5f8671ee901d80105d0c588c497f062e 924 mvgrpfiles_1.0.5-1.debian.tar.xz
+ deeb434d09fb67b46104b80001908dab547ab23e 3602 mvgrpfiles_1.0.5.orig.tar.gz
+ c9796db727109c294495cb2d7d1379213c5f82f9 924 mvgrpfiles_1.0.5-1.debian.tar.xz
 Checksums-Sha256:
- 0d99a51413fe6e4855e826b14ad875412486ef747d604be2dc263f4a3efe9884 3588 mvgrpfiles_1.0.5.orig.tar.gz
- a63cc739e1d54128f71023b2bb63af3ed109bf89e6201dbd8bf549a5fbe7dd46 924 mvgrpfiles_1.0.5-1.debian.tar.xz
+ 4648290ada62da18e25142b684885b0b0e33d681f5965d1010cd62f1b5c4a578 3602 mvgrpfiles_1.0.5.orig.tar.gz
+ dc052d4452a39eea2f8fa9023a906e9436e88be5575031c68d3f723777952acc 924 mvgrpfiles_1.0.5-1.debian.tar.xz
 Files:
- ebe4627afc53829d103373da1b931ff1 3588 mvgrpfiles_1.0.5.orig.tar.gz
- 9b2c6ca4b357e7cd66ab9596759905fa 924 mvgrpfiles_1.0.5-1.debian.tar.xz
-
------BEGIN PGP SIGNATURE-----
-
-iQHUBAEBCgA+FiEEkIAbev6XGMc91pXfFCxI9mgjPKMFAmO32X4gHGd1aWxsZXJt
-by5nYXJjaWEuZ3Jhb0BnbWFpbC5jb20ACgkQFCxI9mgjPKPlhwv7BQZctSV8Vf4R
-OiP1/2hH/eqbV8g45wNbQtrbHSzdr8H+Ir/3VnDEMzvmCQ6y+XiRRUOQcb9KAqj/
-miW7MxGNLoDWRTa8C0X9K7G2Iqk55SBLTGcsGV2LOPeyeG0tcuHLtMdgY1WzL2sK
-XT79s4MOY2g1kDjIYYQoOjzIWLJQ0KRYCS0U0ar5iLNgazgByYjnd+/PC/pNHQrF
-wzg+KLWd4SG7U8ZM0b3rKS+CsZkOZ+OrLXT0YxJ/0Ji46AqUqDmaQuGgOwJMiDGt
-y/20jPokAjMfM0LbMn42iodj4DWpNBJpVAsBxeu15eMwRn2NlOiJJbZ3P5UADGTb
-D8Srm4n6vIQhDrWxoEDINReQ5NgD7+yav5I4KnUoA547LMX/JFpAL7tzBXDy7rrx
-vPENqbSh7H54V194exQeyVrZBFVL+53mDnUyY95G0ejylqpLfkfYZ3B6Jc+FjMYC
-Zcv+RVxiCdEud/v1MtAQbDJvLVyTCJLSjIPEqJ498f+fbnk+pbEl
-=YvMK
------END PGP SIGNATURE-----
+ b3af70c2bdf5204d922c53c423c97628 3602 mvgrpfiles_1.0.5.orig.tar.gz
+ 1a1c25999e3e8ca00e0b4bd12256f490 924 mvgrpfiles_1.0.5-1.debian.tar.xz
