@@ -9,7 +9,7 @@ setup(
     # py_modules=['groups', 'archive'],
     entry_points={
         'console_scripts': [
-            'mvgrpfiles = mvgrpfiles'
+            'mvgrpfiles = mvgrpfiles.__main__:main'
         ]
     },
 )

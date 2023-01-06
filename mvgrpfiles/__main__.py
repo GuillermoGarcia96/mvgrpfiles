@@ -15,36 +15,41 @@ ARCHIVE_DIR = os.path.expanduser("~/.mvgrpfiles/archive/")
 LOGS_DIR = os.path.expanduser("~/.mvgrpfiles/logs/")
 LOCKS_DIR = "/var/tmp/mvgrpfiles/locks/"
 
-print("Starting the program...\n")
+def main():
 
-# Safety checks
-validate_input(sys.argv)
-group_name = sys.argv[1]
+    print("Starting the program...\n")
 
-validate_directories_exist([ARCHIVE_DIR, LOGS_DIR, LOCKS_DIR])
+    # Safety checks
+    validate_input(sys.argv)
+    group_name = sys.argv[1]
 
-locked_groups = get_locked_groups(LOCKS_DIR)
-validate_program_not_running(group_name, locked_groups)
+    validate_directories_exist([ARCHIVE_DIR, LOGS_DIR, LOCKS_DIR])
 
-# Create log file
-log_path = os.path.join(LOGS_DIR, str(time.time()) + "." + group_name + '.log')
-logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
+    locked_groups = get_locked_groups(LOCKS_DIR)
+    validate_program_not_running(group_name, locked_groups)
 
-# Create lock file
-lock_path = os.path.join(LOCKS_DIR, group_name + '.lock')
-create_lock(lock_path)
+    # Create log file
+    log_path = os.path.join(LOGS_DIR, str(time.time()) + "." + group_name + '.log')
+    logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
 
-# Remove lock file whenever program exits
-atexit.register(remove_lock, lock_path)
+    # Create lock file
+    lock_path = os.path.join(LOCKS_DIR, group_name + '.lock')
+    create_lock(lock_path)
 
-print("Looking for files from users in the %s group...\n", group_name)
+    # Remove lock file whenever program exits
+    atexit.register(remove_lock, lock_path)
 
-# Get and archive files
-group_files = get_files_from_all_group_members(group_name)
-archive_full_path = os.path.join(ARCHIVE_DIR, group_name + "_" + str(time.time()) + ".tar")
+    print("Looking for files from users in the %s group...\n", group_name)
 
-print("Archiving files at %s...\n", archive_full_path)
+    # Get and archive files
+    group_files = get_files_from_all_group_members(group_name)
+    archive_full_path = os.path.join(ARCHIVE_DIR, group_name + "_" + str(time.time()) + ".tar")
 
-archive_files(group_files, archive_full_path)
+    print("Archiving files at %s...\n", archive_full_path)
 
-print("Files successfully archived!\n")
+    archive_files(group_files, archive_full_path)
+
+    print("Files successfully archived!\n")
+
+if __name__ == "__main__":
+    main()
