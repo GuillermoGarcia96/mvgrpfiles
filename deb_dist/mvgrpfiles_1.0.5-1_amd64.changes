@@ -1,0 +1,52 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 06 Jan 2023 09:18:54 +0100
+Source: mvgrpfiles
+Binary: python3-mvgrpfiles
+Architecture: source all
+Version: 1.0.5-1
+Distribution: unstable
+Urgency: low
+Maintainer: Guillermo García Grao <guillermo.garcia.grao@gmail.com>
+Changed-By: Guillermo García Grao <guillermo.garcia.grao@gmail.com>
+Description:
+ python3-mvgrpfiles - A Python program that moves all files from all members of a
+Changes:
+ mvgrpfiles (1.0.5-1) unstable; urgency=low
+ .
+   * source package automatically created by stdeb 0.10.0
+Checksums-Sha1:
+ 95b5aad22b892006104185b992c581a59f29b331 1614 mvgrpfiles_1.0.5-1.dsc
+ 153dfb73bfda0fea7a53e4a2801be72006a9963e 3588 mvgrpfiles_1.0.5.orig.tar.gz
+ b0bd399e5f8671ee901d80105d0c588c497f062e 924 mvgrpfiles_1.0.5-1.debian.tar.xz
+ 56a3738bd9b49408136e38af416e51471dbc791d 7036 mvgrpfiles_1.0.5-1_amd64.buildinfo
+ fce9f92fec5c7927b214bc148b92cffa8b663e26 4736 python3-mvgrpfiles_1.0.5-1_all.deb
+Checksums-Sha256:
+ 37e83cd28e265cde300ed2dd3b3cbd56628afb021282912ada980d55f9113859 1614 mvgrpfiles_1.0.5-1.dsc
+ 0d99a51413fe6e4855e826b14ad875412486ef747d604be2dc263f4a3efe9884 3588 mvgrpfiles_1.0.5.orig.tar.gz
+ a63cc739e1d54128f71023b2bb63af3ed109bf89e6201dbd8bf549a5fbe7dd46 924 mvgrpfiles_1.0.5-1.debian.tar.xz
+ 7ab06c9057e57faf529b02418db2731cbabf12f8d6c733f689e4f08cfb0b5097 7036 mvgrpfiles_1.0.5-1_amd64.buildinfo
+ 3f5a9659a4fefc63fbf9da28c292cdacca6ec0a06aaee906d295e38c5a82c204 4736 python3-mvgrpfiles_1.0.5-1_all.deb
+Files:
+ 69851b45ed92819ba72480ab1a93f78e 1614 python optional mvgrpfiles_1.0.5-1.dsc
+ ebe4627afc53829d103373da1b931ff1 3588 python optional mvgrpfiles_1.0.5.orig.tar.gz
+ 9b2c6ca4b357e7cd66ab9596759905fa 924 python optional mvgrpfiles_1.0.5-1.debian.tar.xz
+ e6e8327c8075dbbdcbb83ddd49d33be1 7036 python optional mvgrpfiles_1.0.5-1_amd64.buildinfo
+ a7123cc870f1b38849d5efec0abadc89 4736 python optional python3-mvgrpfiles_1.0.5-1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQHUBAEBCgA+FiEEkIAbev6XGMc91pXfFCxI9mgjPKMFAmO32X8gHGd1aWxsZXJt
+by5nYXJjaWEuZ3Jhb0BnbWFpbC5jb20ACgkQFCxI9mgjPKOWwgv/ZBkM7FWURgDm
+Ucd58ZewtSr/ZPeNiUiYpyrQ027VuJC2jEIu8vXMkEAXAQywe8d0lxDZydolfQo3
+hZ+e78Z3JLlu9k6G4aMBsiZP5k9naMb9yfs1ZYLANGASPVSMak+9tkBHZ3n0Iw6s
+s0iiTb5qAUccJ0iFG5l7UwuTUzK1P/r2RLmHpoqow+BE7ELjCHMqrAwRT6V243IV
+O0mknPGldClXLQzxxrLO2wRyiPb5nXVQNmJrdJ2hEdrN11+6BmdsTjvmjw833P0s
+Qsj05t59U3Vc1YY/Sz1O6FNOI9b7FL9pOcT9pUXf7LmlU+q5fKMbt6LLEQGFG8w5
+EzIRHS/Regfw6vUGo4pP0ZLZZppAjxlY07EKrz3jvgeKYJKvE1lrCHqApPD6edw2
+jGSxr1vBe9TfYyt+a/Y0d+VDH85ih5oQBuccv32HqKG2FFWk7gzyEXc+iDhHuETJ
+zkQe3/sII5dbRkDdYvyYVKZ1KXYKfM0sphQ+7ud6tOllqaefxAZ/
+=5w56
+-----END PGP SIGNATURE-----

@@ -1,0 +1,10 @@
+3265ed2fbaa4b18f84dbb5362493ac2e  usr/bin/mvgrpfiles
+b205ec96cc69ce55c603a651d367a36b  usr/lib/python3/dist-packages/mvgrpfiles-1.0.5.egg-info/PKG-INFO
+68b329da9893e34099c7d8ad5cb9c940  usr/lib/python3/dist-packages/mvgrpfiles-1.0.5.egg-info/dependency_links.txt
+d0e2b4eb426c81e8c1697b25c8b6a669  usr/lib/python3/dist-packages/mvgrpfiles-1.0.5.egg-info/entry_points.txt
+a8e2fb5aadcc256943ba2d30ad15155d  usr/lib/python3/dist-packages/mvgrpfiles-1.0.5.egg-info/top_level.txt
+d41d8cd98f00b204e9800998ecf8427e  usr/lib/python3/dist-packages/mvgrpfiles/__init__.py
+f5fc3faa622a479197d275e738cf6dd6  usr/lib/python3/dist-packages/mvgrpfiles/__main__.py
+4fd7c7b4baa146ace5771f18cf7d10d4  usr/lib/python3/dist-packages/mvgrpfiles/fs_interface.py
+33fc520925329e693862c55111e5684f  usr/lib/python3/dist-packages/mvgrpfiles/validators.py
+fd263a02abd002dd41d672109761ae42  usr/share/doc/python3-mvgrpfiles/changelog.Debian.gz
