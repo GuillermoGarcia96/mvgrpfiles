@@ -1,0 +1,18 @@
+[metadata]
+name = "mvgrpfiles"
+version = "0.0.1"
+author = "Guillermo García Grao"
+author_email = "guillermo.garcia.grao@gmail.com"
+description = "A Python program that moves all files from all members of a group to an archive"
+# url = "https://github.com/your_username/my_package"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+python_requires = ">=3.9"
+
+[entry_points]
+console_scripts = [
+    "mvgrpfiles = mvgrpfiles.main:main"
+]
