@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import logging
+import atexit
 
 from mvgrpfiles.fs_interface import get_files_from_all_group_members, archive_files, create_lock, remove_lock, get_locked_groups
 from mvgrpfiles.validators import validate_input, validate_program_not_running, validate_directories_exist
@@ -33,6 +34,9 @@ logging.basicConfig(filename=log_path, encoding='utf-8', level=logging.DEBUG)
 lock_path = os.path.join(LOCKS_DIR, group_name + '.lock')
 create_lock(lock_path)
 
+# Remove lock file whenever program exits
+atexit.register(remove_lock, lock_path)
+
 print("Looking for files from users in the %s group...\n", group_name)
 
 # Get and archive files
@@ -44,6 +48,3 @@ print("Archiving files at %s...\n", archive_full_path)
 archive_files(group_files, archive_full_path)
 
 print("Files successfully archived!\n")
-
-# Remove lock file
-remove_lock(lock_path)
