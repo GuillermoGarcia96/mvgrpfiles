@@ -23,7 +23,7 @@ def get_locked_groups(locks_path: str):
     lock_files =  os.listdir(locks_path)
     locked_groups = map(lambda x: x.split('.', 1)[0], lock_files)
 
-    return locked_groups
+    return list(locked_groups)
 
 
 def get_files_from_all_group_members(group_name: str) -> list[str]:
